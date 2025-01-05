@@ -12,19 +12,21 @@ class HttpService {
         this.storageService = storageService;
     }
 
+    // STEP 3
     get defaultOptions() {
-        const token = this.storageService.get('token')
-        const authorizationToken = token
-            ? {'Authorization': `Token ${token}`}
+        const accessToken = this.storageService.get('accessToken'); // Fetch the JWT token
+        const authorizationToken = accessToken
+            ? { 'Authorization': `Bearer ${accessToken}` } // Use 'Bearer' for JWT
             : {};
-
+    
         return {
             headers: {
-                ...this.defaultHeaders,
-                ...authorizationToken,
+                ...this.defaultHeaders, // Any predefined headers
+                ...authorizationToken, // Add the authorization token if available
             },
         };
     }
+    
 
     async request(method, url, body, query) {
         const bodyOptions = body

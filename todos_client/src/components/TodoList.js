@@ -60,7 +60,7 @@ const TodosList = () => {
             const {
                 title,
                 description,
-                is_done: isDone,
+                state: isDone,
             } = todoDetails;
 
             return (

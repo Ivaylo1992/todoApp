@@ -15,9 +15,15 @@ const AuthProvider = ({children, initialIsLoggedIn}) => {
 
     const login = useCallback(
         async (username, password) => {
-            const credentials = {username, password};
-            const {token} = await httpService.post(urlsService.getLoginUrl(), credentials);
-            storageService.set('token', token);
+            const credentials = { username, password };
+    
+            // STEP 1
+            const { access, refresh } = await httpService.post(urlsService.getLoginUrl(), credentials);
+    
+            // STEP 2
+            storageService.set('accessToken', access);
+            storageService.set('refreshToken', refresh);
+    
             setLoggedIn(true);
         },
         [httpService, storageService, urlsService],

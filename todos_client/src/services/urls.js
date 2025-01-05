@@ -4,35 +4,35 @@ class UrlsService {
     }
 
     getCategoriesListUrl() {
-        return `${this.baseUrl}/api/todos/categories/`;
+        return `${this.baseUrl}/todos/categories/`;
     }
 
     getTodosListUrl() {
-        return `${this.baseUrl}/api/todos/`;
+        return `${this.baseUrl}/todos/`;
     }
 
     getTodoDetailsUrl(id) {
-        return `${this.baseUrl}/api/todos/${id}/`;
+        return `${this.baseUrl}/todos/${id}/`;
     }
 
     getTodoUpdateUrl(id) {
-        return `${this.baseUrl}/api/todos/${id}/`;
+        return `${this.baseUrl}/todos/${id}/`;
     }
 
     getTodoCreateUrl() {
-        return `${this.baseUrl}/api/todos/`;
+        return `${this.baseUrl}/todos/`;
     }
 
     getLoginUrl() {
-        return `${this.baseUrl}/api/auth/login/`;
+        return `${this.baseUrl}/auth/login/`;
     }
 
     getRegisterUrl() {
-        return `${this.baseUrl}/api/auth/register/`;
+        return `${this.baseUrl}/auth/register/`;
     }
 
     getLogoutUrl() {
-        return `${this.baseUrl}/api/auth/logout/`;
+        return `${this.baseUrl}/auth/logout/`;
     }
 }
 

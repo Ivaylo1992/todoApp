@@ -10,7 +10,7 @@ const TodosProvider = ({children}) => {
     const [todoDetails, setTodoDetails] = useState({
         title: '',
         description: '',
-        is_done: false,
+        state: false,
     });
     const [query, setQuery] = useState({});
     const {
@@ -33,10 +33,10 @@ const TodosProvider = ({children}) => {
 
     const changeTodoState = useCallback(
         async () => {
-            const {id, is_done} = todoDetails;
+            const {id, state} = todoDetails;
             const payload = {
                 ...todoDetails,
-                is_done: !is_done,
+                state: !state,
             };
             await httpService.put(urlsService.getTodoUpdateUrl(id), payload);
             await loadTodoDetails(id);
